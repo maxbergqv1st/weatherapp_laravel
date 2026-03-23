@@ -34,6 +34,18 @@ const showingNavigationDropdown = ref(false);
                                 class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex"
                             >
                                 <NavLink
+                                :href="route('home')"
+                                :active="route().current('home')"
+                                >
+                                    Hem
+                                </NavLink>
+                                <NavLink
+                                    :href="route('weather.show')"
+                                    :active="route().current('weather.show')"
+                                >
+                                    Väder
+                                </NavLink>
+                                <NavLink
                                     :href="route('dashboard')"
                                     :active="route().current('dashboard')"
                                 >
@@ -41,27 +53,6 @@ const showingNavigationDropdown = ref(false);
                                 </NavLink>
                             </div>
                         </div>
-
-                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <NavLink
-                            :href="route('home')"
-                            :active="route().current('home')"
-                        >
-                            Hem
-                        </NavLink>
-                        <NavLink
-                            :href="route('weather.show')"
-                            :active="route().current('weather.show')"
-                        >
-                            Väder
-                        </NavLink>
-                        <NavLink
-                            :href="route('dashboard')"
-                            :active="route().current('dashboard')"
-                        >
-                            Dashboard
-                        </NavLink>
-                    </div>
 
                         <div class="hidden sm:ms-6 sm:flex sm:items-center">
                             <!-- Settings Dropdown -->
