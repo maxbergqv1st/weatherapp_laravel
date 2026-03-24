@@ -13,17 +13,15 @@ return new class extends Migration
     {
       schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('provider_key')->nullable()->unique();
-            $table->string('name');
-            $table->string('country');
-            $table->string('region')->nullable();
-            $table->decimal('lat', 10, 7)->nullable();
-            $table->decimal('lon', 10, 7)->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('location_id')->constrained()->onDelete('cascade');
             $table->timestamps();
+
+            table->unique(['user_id', 'location_id']);
         });
     }
     public function down(): void
     {
-        Schema::dropIfExists('locations');
+        Schema::dropIfExists('favorite_locations');
     }
 };
