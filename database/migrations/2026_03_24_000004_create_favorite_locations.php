@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-      schema::create('locations', function (Blueprint $table) {
+      schema::create('favorite_locations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('location_id')->constrained()->onDelete('cascade');
