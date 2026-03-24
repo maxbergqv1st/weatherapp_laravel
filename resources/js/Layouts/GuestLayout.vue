@@ -1,6 +1,13 @@
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
 import { Link } from '@inertiajs/vue3';
+
+defineProps({
+    contained: {
+        type: Boolean,
+        default: true,
+    },
+});
 </script>
 
 <template>
@@ -31,9 +38,15 @@ import { Link } from '@inertiajs/vue3';
         </nav>
 
         <div
-            class="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-4 py-6 sm:py-0"
+            :class="contained
+                ? 'flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center px-4 py-6 sm:py-0'
+                : 'min-h-[calc(100vh-4rem)] px-4 py-6 sm:px-6 lg:px-8'"
         >
-            <div class="w-full rounded-lg bg-white shadow-md ring-1 ring-gray-900/10 sm:max-w-md">
+            <div
+                :class="contained
+                    ? 'w-full rounded-lg bg-white shadow-md ring-1 ring-gray-900/10 sm:max-w-md'
+                    : 'mx-auto w-full max-w-7xl'"
+            >
                 <div class="px-6 py-8 sm:px-8">
                     <slot />
                 </div>
